@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from middleware import log_requests
+from routers.students import student_router
 
 app = FastAPI()
 
@@ -15,3 +16,5 @@ app.add_middleware(
 )
 
 app.middleware("http")(log_requests)
+
+app.include_router(student_router)
