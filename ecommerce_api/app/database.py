@@ -1,7 +1,7 @@
 from sqlmodel import create_engine, Session
-from models import Student
+from models import Product
 
-engine = create_engine("sqlite:///student.db")
+engine = create_engine("sqlite:///ecommerce.db")
 
 def get_session():
     with Session(engine) as session:
