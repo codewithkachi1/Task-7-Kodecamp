@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from middleware import count_requests
+from routers.notes import note_router
 
 app = FastAPI()
 
@@ -15,3 +16,5 @@ app.add_middleware(
 )
 
 app.middleware("http")(count_requests)
+
+app.include_router(note_router)
