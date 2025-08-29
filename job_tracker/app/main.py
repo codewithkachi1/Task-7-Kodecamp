@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from middleware import check_user_agent
+from routers.applications import application_router
 
 app = FastAPI()
 
@@ -15,3 +16,5 @@ app.add_middleware(
 )
 
 app.middleware("http")(check_user_agent)
+
+app.include_router(application_router)
